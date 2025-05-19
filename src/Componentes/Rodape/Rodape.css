@@ -1,0 +1,22 @@
+/* Rodape.css */
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    color: #4A90E2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.1);
+    background-color: #e0e0e0;
+    color: #357ABD;
+  }
+  
