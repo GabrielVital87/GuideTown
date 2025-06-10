@@ -5,6 +5,7 @@ import Cabecalho from './Componentes/Cabecalho';
 import Home from './Componentes/Home';
 import Login from './Componentes/Login';
 import Register from './Componentes/Register';
+import Sobrenos from './Componentes/Sobrenos';
 function App() {
   return (
     <>
@@ -13,6 +14,7 @@ function App() {
              <Route path='/' element={<Home />}/>
              <Route path='Login' element={<Login/>}/>
              <Route path='Register' element={<Register/>}/>
+             <Route path='Sobrenos' element={<Sobrenos/>}/>
            </Routes>
          </BrowserRouter>
    

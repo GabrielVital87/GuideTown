@@ -26,7 +26,7 @@ function Rodape() {
           <div className="col-md-4 mb-4">
             <ul className="list-unstyled">
               <li className="mb-2">
-                <a href="/contato" className="text-white text-decoration-none">
+                <a href="https://web.whatsapp.com/" target="_blank" rel="noopener noreferrer" className="text-white text-decoration-none">
                   <FaPhoneAlt className="me-2" />
                   Fale Conosco
                 </a>

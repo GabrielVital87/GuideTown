@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import Rodape from '../Rodape';
 import Cabecalho from '../Cabecalho';
 import { Link } from 'react-router-dom';
 
 function Register() {
+  const [tipoCadastro, setTipoCadastro] = useState('cliente');
+
   return (
     <>
       <Cabecalho />
 
-      {/* Espaço extra entre cabeçalho e conteúdo + padding inferior para afastar do rodapé */}
       <div className="pt-5 pb-5 bg-light" style={{ minHeight: '100vh' }}>
         <div className="d-flex align-items-center justify-content-center">
           <div className="card shadow-lg p-4 mt-5" style={{ maxWidth: "500px", width: "100%" }}>
             <div className="text-center mb-4">
-              <h1 className="text-primary">REGISTER</h1>
+              <h1 className="text-primary">CADASTRAR</h1>
               <p className="text-muted">
                 Já é cadastrado?{' '}
                 <Link to="/login" className="text-decoration-none">
@@ -24,18 +25,50 @@ function Register() {
             </div>
 
             <form action="/action_page.php">
+              {/* Tipo de cadastro */}
               <div className="mb-3">
-                <label htmlFor="nomeEmpresa" className="form-label">Nome da Empresa</label>
+                <label htmlFor="tipoCadastro" className="form-label">Tipo de Cadastro</label>
+                <select
+                  id="tipoCadastro"
+                  className="form-select"
+                  value={tipoCadastro}
+                  onChange={(e) => setTipoCadastro(e.target.value)}
+                >
+                  <option value="cliente">Cliente</option>
+                  <option value="empresa">Empresa</option>
+                </select>
+              </div>
+
+              {/* Nome ou Razão Social */}
+              <div className="mb-3">
+                <label htmlFor="nome" className="form-label">
+                  {tipoCadastro === 'empresa' ? 'Razão Social' : 'Nome'}
+                </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="nomeEmpresa"
-                  placeholder="Digite o nome da empresa"
+                  id="nome"
+                  placeholder={tipoCadastro === 'empresa' ? 'Digite a razão social' : 'Digite seu nome'}
                   name="nome"
                   required
                 />
               </div>
 
+              {/* Campo adicional: Nome Fantasia (somente empresa) */}
+              {tipoCadastro === 'empresa' && (
+                <div className="mb-3">
+                  <label htmlFor="nomeFantasia" className="form-label">Nome Fantasia</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="nomeFantasia"
+                    placeholder="Digite o nome fantasia"
+                    name="nomeFantasia"
+                  />
+                </div>
+              )}
+
+              {/* Email */}
               <div className="mb-3">
                 <label htmlFor="email" className="form-label">E-mail</label>
                 <input
@@ -48,18 +81,22 @@ function Register() {
                 />
               </div>
 
+              {/* CPF ou CNPJ */}
               <div className="mb-3">
-                <label htmlFor="cpfCnpj" className="form-label">CPF / CNPJ</label>
+                <label htmlFor="cpfCnpj" className="form-label">
+                  {tipoCadastro === 'empresa' ? 'CNPJ' : 'CPF'}
+                </label>
                 <input
                   type="text"
                   className="form-control"
                   id="cpfCnpj"
-                  placeholder="Digite CPF ou CNPJ"
+                  placeholder={tipoCadastro === 'empresa' ? 'Digite o CNPJ' : 'Digite o CPF'}
                   name="cpfCnpj"
                   required
                 />
               </div>
 
+              {/* Senha */}
               <div className="mb-3">
                 <label htmlFor="senha" className="form-label">Senha</label>
                 <input
@@ -72,6 +109,7 @@ function Register() {
                 />
               </div>
 
+              {/* Confirmar Senha */}
               <div className="mb-3">
                 <label htmlFor="confirmSenha" className="form-label">Confirmar Senha</label>
                 <input
@@ -84,6 +122,7 @@ function Register() {
                 />
               </div>
 
+              {/* Botão */}
               <div className="d-grid">
                 <button type="submit" className="btn btn-primary">Criar conta</button>
               </div>

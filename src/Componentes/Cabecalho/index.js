@@ -45,7 +45,7 @@ function Cabecalho() {
 
                     {/* Botões */}
                     <div className="d-flex flex-wrap align-items-center">
-                        <Botao nome="SOBRE NÓS" cor="btn btn-outline-secondary me-2 mb-2" />
+                        <Botao nome="SOBRE NÓS" cor="btn btn-outline-secondary me-2 mb-2" link='/Sobrenos' />
                         <Botao nome="Acessar" cor="btn btn-outline-secondary me-2 mb-2" link='/Login' icon={<FaSignInAlt />} />
                         <Botao nome="Criar conta" cor="btn btn-outline-secondary me-2 mb-2"link='/Register' icon={<FaUserPlus />} />
                         <button className="btn btn-primary mb-2">

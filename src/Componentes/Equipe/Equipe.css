@@ -1,0 +1,27 @@
+.equipe-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 20px;
+  background-color: #003f7d, #4A90E2;
+  flex-wrap: wrap; /* Garante responsividade em telas pequenas */
+}
+
+.perfil {
+  text-align: center;
+}
+
+.foto {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.nome {
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
